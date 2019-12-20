@@ -5,9 +5,11 @@
 
     <main class="app-content" :class="{ full: !isOpen }">
       <div class="app-page">
-        <transition name="fade">
-          <router-view />
-        </transition>
+        <div>
+          <vue-page-transition name="fade-in-down">
+            <router-view />
+          </vue-page-transition>
+        </div>
       </div>
     </main>
 
@@ -33,15 +35,4 @@ export default {
   })
 };
 </script>
-<style lang="scss">
-// .fade-enter-active,
-// .fade-leave-active {
-//   transition: opacity 1s
-// }
-
-// .fade-enter,
-// .fade-leave-to
-// {
-//   opacity: 0
-// }
-</style>
+<style lang="scss"></style>

@@ -1,5 +1,7 @@
 <template>
   <div class="grey darken-1 empty-layout">
-    <router-view />
+    <vue-page-transition name="fade-in-down">
+      <router-view />
+    </vue-page-transition>
   </div>
 </template>
