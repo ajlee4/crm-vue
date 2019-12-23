@@ -112,11 +112,10 @@ export default {
     email: { email, required },
     password: { required, minLength: minLength(6) },
     name: { required, minLength: minLength(5) },
-    agree: { checked: v =>v }
+    agree: { checked: v => v }
   },
   methods: {
-    onSubmit() {
-      console.log(this.$v.name);
+    async onSubmit() {
       if (this.$v.$invalid) {
         this.$v.$touch();
         return;
@@ -126,8 +125,12 @@ export default {
         password: this.password,
         name: this.name
       };
-      console.log(formData);
-      this.$router.push("/");
+      try {
+        await this.$store.dispatch("register", formData);
+        this.$router.push("/");
+      } catch (e) {
+        e;
+      }
     }
   }
 };
